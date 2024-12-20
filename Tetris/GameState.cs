@@ -104,7 +104,7 @@ namespace Tetris
             }
 
             GameGrid.CheckRowComplete();
-
+            
             if (IsGameOver())
             {
                 GameOver = true;
