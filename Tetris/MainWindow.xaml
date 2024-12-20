@@ -22,10 +22,6 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Grid.Background>
-            <ImageBrush ImageSource="Assets/background.png"/>
-        </Grid.Background>
-        
         <Viewbox Grid.Column="1"
                  Grid.Row="1"
                  Margin ="0,10,0,20">
