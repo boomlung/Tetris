@@ -18,6 +18,7 @@ namespace Tetris
     /// this is a comment
     /// this is the comment 2
     /// </summary>
+    /// hiiiiiiiifdfdfdfhi
     public partial class MainWindow : Window
     {
         private readonly ImageSource[] tileImages = new ImageSource[]
