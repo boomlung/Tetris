@@ -5,7 +5,7 @@ using System.Text;
 
 class Server
 {
-    public static void Main()
+    public server()
     {
         // Define the IP address and port number to listen on
         IPAddress ip = IPAddress.Any;

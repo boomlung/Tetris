@@ -4,7 +4,7 @@ using System.Text;
 
 class Client
 {
-    public static void Main()
+    public Client()
     {
         // Define the server address and port number to connect to
         string server = "127.0.0.1";
