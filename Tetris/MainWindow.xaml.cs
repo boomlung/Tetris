@@ -142,7 +142,7 @@ namespace Tetris
             DrawGhostBlock(gameState.CurrentBlock);
             DrawNextBlock(gameState.BlockQueue);
             DrawHoldBlock(gameState.Held);
-            ScoreText.Text = $"Score: {gameState.Score}";
+            ScoreText.Text = $"Score: {gameState.Score * 10}";
         }
 
         private async Task GameLoop()
@@ -156,7 +156,7 @@ namespace Tetris
             }
 
             GameOverMenu.Visibility = Visibility.Visible;
-            //FinalScoreText.Text = $"Score: {gameState.Score}";
+            FinalScoreText.Text = $"Score: {gameState.Score * 10}";
         }
 
         private async void RestartButton_Click(object sender, RoutedEventArgs e)
