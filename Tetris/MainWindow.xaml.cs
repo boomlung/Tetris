@@ -166,6 +166,21 @@ namespace Tetris
             await GameLoop();
         }
 
+        private async void ReturnButton_Click(object sender, RoutedEventArgs e)
+        {
+            GameOverMenu.Visibility = Visibility.Hidden;
+            GameMainMenu.Visibility = Visibility.Visible;
+        }
+
+        private async void StartButton_Click(object sender, RoutedEventArgs e)
+        {
+            gameState = new GameState();   
+            GameMainMenu.Visibility = Visibility.Hidden;
+            GameGrid.Visibility = Visibility.Visible;
+            GameCanvas.Loaded += GameCanvas_Loaded;
+            await GameLoop();
+        }
+
 
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
