@@ -168,10 +168,9 @@ namespace Tetris
         public BlockQueue()
         {
             Queue = new Block[3];
-            for (int i = 0; i < 3; i++)
-            {
-                Queue[i] = RandomBlock();
-            }
+            Queue[0] = RandomBlock();
+            Queue[1] = RandomBlock();
+            Queue[2] = RandomBlock();
             NextBlock = Queue[0];
         }
 
@@ -183,11 +182,14 @@ namespace Tetris
         public Block GetNextBlock()
         {
             Block block = NextBlock;
+            NextBlock = Queue[0];
+            Queue[0] = Queue[1];
+            Queue[1] = Queue[2];
             do
             {
-                NextBlock = RandomBlock();
+                Queue[2] = RandomBlock();
             }
-            while (NextBlock.Id == block.Id);
+            while (Queue[1].Id == Queue[2].Id);
             return block;
         }
     }
