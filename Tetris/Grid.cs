@@ -85,8 +85,9 @@ namespace Tetris
             }
         }
 
-        public void CheckRowComplete()
+        public int CheckRowComplete()
         {
+            int clearedrows = 0;
             for (int row = Rows - 1; row >= 0; row--)
             {
                 if (IsRowFull(row))
@@ -94,8 +95,11 @@ namespace Tetris
                     ClearRow(row);
                     MoveUpperRowsDown(row - 1);
                     row += 1;
+                    clearedrows++;
                 }
             }
+
+            return clearedrows;
         }
 
     }

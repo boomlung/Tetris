@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Tetris(Debugging)" Height="600" Width="800"
         MinWidth="600" MinHeight="600"
-        Foreground="White"
+        Foreground="Black"
         FontFamily="Segoe UI Light" FontSize="28"
         KeyDown="Window_KeyDown">
     
@@ -21,10 +21,12 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
+        
+        <!--
         <Grid.Background>
             <ImageBrush ImageSource="Assets/background.png"/>
         </Grid.Background>
+        -->
         
         <Viewbox Grid.Column="1"
                  Grid.Row="1"
