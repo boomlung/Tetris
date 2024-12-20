@@ -16,6 +16,7 @@ namespace Tetris
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// this is a comment
+    /// this is the comment 2
     /// </summary>
     public partial class MainWindow : Window
     {
