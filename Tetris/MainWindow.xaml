@@ -10,8 +10,8 @@
         Foreground="Black"
         FontFamily="Segoe UI Light" FontSize="28"
         KeyDown="Window_KeyDown">
-    
-    <Grid>
+
+    <Grid Background="Pink">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="auto" />
@@ -31,7 +31,7 @@
                     Height="550"
                     ClipToBounds="True"
                     Loaded="GameCanvas_Loaded"/>
-            
+
         </Viewbox>
 
         <TextBlock x:Name="ScoreText"
@@ -40,27 +40,57 @@
                    Text="Score: "
                    TextAlignment="Center"/>
 
-        <StackPanel Grid.Row="1"
-                    Grid.Column="0"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Right">
+        <Grid Grid.Row="1"
+              Grid.Column="0"
+              VerticalAlignment="Center"
+              HorizontalAlignment="Right">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
             <TextBlock Text="Hold"
-                       TextAlignment="Center"/>
-            <Image x:Name="HoldImage"
-                   Margin="20"
-                   Width="125"/>
-        </StackPanel>
+                       TextAlignment="Center"
+                       Grid.Row="0"/>
+            <Border Background="Black"
+                    Grid.Row="1"
+                    CornerRadius="10"
+                    BorderBrush="DarkRed"
+                    BorderThickness="4">
+                <Image x:Name="HoldImage"
+                       Width="100"
+                       Height="100"/>
+            </Border>
+        </Grid>
 
-        <StackPanel Grid.Row="1"
-            Grid.Column="2"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Left">
+        <Grid Grid.Row="1"
+              Grid.Column="2"
+              VerticalAlignment="Center"
+              HorizontalAlignment="Left">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
             <TextBlock Text="Next"
-               TextAlignment="Center"/>
-            <Image x:Name="NextImage"
-           Margin="20"
-           Width="125"/>
-        </StackPanel>
+               TextAlignment="Center"
+               Grid.Row="0"/>
+            <Border Background="Black"
+                    Margin="0"
+                    Grid.Row="1"
+                    >
+                <StackPanel>
+                    <Image x:Name="NextImage1"
+                           Margin="0"
+                           Width="100"/>
+                    <Image x:Name="NextImage2"
+                           Margin="0"
+                           Width="100"/>
+                    <Image x:Name="NextImage3"
+                           Margin="0"
+                           Width="100"/>
+                </StackPanel>
+            </Border>
+        </Grid>
 
         <Grid x:Name="GameOverMenu"
               Background="#CC000000"
@@ -80,7 +110,7 @@
                                FontSize="48"
                                Foreground="White"
                                HorizontalAlignment="Center"/>
-                    
+
                     <TextBlock x:Name="FinalScoreText"
                                Text="Score: "
                                FontSize="36"
@@ -96,6 +126,6 @@
                 </StackPanel>
             </Border>
         </Grid>
-        
+
     </Grid>
 </Window>

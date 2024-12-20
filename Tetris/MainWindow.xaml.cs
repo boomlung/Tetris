@@ -102,19 +102,20 @@ namespace Tetris
 
         private void DrawNextBlock(BlockQueue blockQueue)
         {
-            Block next = blockQueue.NextBlock;
-            NextImage.Source = blockImages[next.Id];
+            NextImage1.Source = blockImages[blockQueue.Queue[0].Id];
+            NextImage2.Source = blockImages[blockQueue.Queue[1].Id];
+            NextImage3.Source = blockImages[blockQueue.Queue[2].Id];
         }
 
         private void DrawHoldBlock(Block Held)
         {
-            if(Held == null)
+            if (Held != null)
             {
-                HoldImage.Source = blockImages[0];
+                HoldImage.Source = blockImages[gameState.Held.Id];
             }
             else
             {
-                HoldImage.Source = blockImages[gameState.Held.Id];
+                HoldImage.Source = null;
             }
         }
 

@@ -161,7 +161,7 @@ namespace Tetris
 
         private readonly Random random = new Random();
 
-        public Block NextBlock { get; private set; }
+        //public Block NextBlock { get; private set; }
 
         public Block[] Queue { get; private set; }
 
@@ -170,8 +170,23 @@ namespace Tetris
             Queue = new Block[3];
             Queue[0] = RandomBlock();
             Queue[1] = RandomBlock();
+            if(Queue[0].Id == Queue[1].Id)
+            {
+                do
+                {
+                    Queue[1] = RandomBlock();
+                }
+                while (Queue[0].Id == Queue[1].Id);
+            }
             Queue[2] = RandomBlock();
-            NextBlock = Queue[0];
+            if (Queue[1].Id == Queue[2].Id)
+            {
+                do
+                {
+                    Queue[2] = RandomBlock();
+                }
+                while (Queue[2].Id == Queue[1].Id);
+            }
         }
 
         private Block RandomBlock()
@@ -181,8 +196,7 @@ namespace Tetris
 
         public Block GetNextBlock()
         {
-            Block block = NextBlock;
-            NextBlock = Queue[0];
+            Block block = Queue[0];
             Queue[0] = Queue[1];
             Queue[1] = Queue[2];
             do
