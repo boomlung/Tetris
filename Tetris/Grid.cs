@@ -99,7 +99,8 @@ namespace Tetris
                 }
             }
 
-            return clearedrows;
+            int score = (int)Math.Pow(2, clearedrows) * 100;
+            return score;
         }
 
     }

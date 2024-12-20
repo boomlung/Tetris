@@ -19,7 +19,7 @@ namespace Tetris
     /// this is the comment 2
     /// this is comment 3
     /// </summary>
-    /// 
+    /// test branch
     public partial class MainWindow : Window
     {
         private readonly ImageSource[] tileImages = new ImageSource[]
@@ -142,7 +142,7 @@ namespace Tetris
             DrawGhostBlock(gameState.CurrentBlock);
             DrawNextBlock(gameState.BlockQueue);
             DrawHoldBlock(gameState.Held);
-            ScoreText.Text = $"Score: {gameState.Score * 10}";
+            ScoreText.Text = $"Score: {gameState.Score}";
         }
 
         private async Task GameLoop()
@@ -156,7 +156,7 @@ namespace Tetris
             }
 
             GameOverMenu.Visibility = Visibility.Visible;
-            FinalScoreText.Text = $"Score: {gameState.Score * 10}";
+            FinalScoreText.Text = $"Score: {gameState.Score}";
         }
 
         private async void RestartButton_Click(object sender, RoutedEventArgs e)
