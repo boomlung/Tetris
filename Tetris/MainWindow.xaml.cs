@@ -163,6 +163,8 @@ namespace Tetris
             await GameLoop();
         }
 
+
+
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.Key)
