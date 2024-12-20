@@ -15,11 +15,7 @@ namespace Tetris
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
-    /// this is a comment
-    /// this is the comment 2
-    /// this is comment 3
     /// </summary>
-    /// hiiiiiiiifdfdfdfhiyo
     public partial class MainWindow : Window
     {
         private readonly ImageSource[] tileImages = new ImageSource[]
