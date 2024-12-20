@@ -103,7 +103,7 @@ namespace Tetris
                 GameGrid[tile.Row, tile.Column] = CurrentBlock.Id;
             }
 
-            Score += GameGrid.CheckRowComplete();
+            GameGrid.CheckRowComplete();
             
             if (IsGameOver())
             {

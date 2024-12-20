@@ -155,7 +155,7 @@ namespace Tetris
             }
 
             GameOverMenu.Visibility = Visibility.Visible;
-            FinalScoreText.Text = $"Score: {gameState.Score}";
+            //FinalScoreText.Text = $"Score: {gameState.Score}";
         }
 
         private async void RestartButton_Click(object sender, RoutedEventArgs e)
