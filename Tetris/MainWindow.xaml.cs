@@ -157,7 +157,6 @@ namespace Tetris
                 }
                 await Task.Delay(500);
             }
-
             GameOverMenu.Visibility = Visibility.Visible;
             FinalScoreText.Text = $"Score: {gameState.Score}";
         }
@@ -170,14 +169,30 @@ namespace Tetris
             await GameLoop();
         }
 
-        private async void StartButton_Click(object sender, RoutedEventArgs e)
+        private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            gameState = new GameState(true);
             InstructionPage.Visibility = Visibility.Hidden;
             GameMainMenu.Visibility = Visibility.Hidden;
+            ModeSelectionPage.Visibility = Visibility.Visible;
+        }
+
+        private async void SinglePlayer_Click(object sender, RoutedEventArgs e)
+        {
+            gameState = new GameState(true);
             GameGrid.Visibility = Visibility.Visible;
+            ModeSelectionPage.Visibility = Visibility.Hidden;
             GameCanvas.Loaded += GameCanvas_Loaded;
             await GameLoop();
+        }
+        
+        private void LocalBattle_Click(object sender, RoutedEventArgs e)
+        {
+            //
+        }
+
+        private void OnlineBattle_Click(object sender, RoutedEventArgs e)
+        {
+            //
         }
 
         private void InstructButton_Click(object sender, RoutedEventArgs e)
@@ -193,6 +208,7 @@ namespace Tetris
             InstructionPage.Visibility = Visibility.Hidden;
             GameMainMenu.Visibility = Visibility.Visible;
             GameOverMenu.Visibility = Visibility.Hidden;
+            ModeSelectionPage.Visibility = Visibility.Hidden;
         }
 
 

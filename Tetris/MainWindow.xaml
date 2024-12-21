@@ -17,9 +17,12 @@
     <Grid>
         <!-- Game Grid -->
         <Grid x:Name="GameGrid"
-			  Background="Pink"
-			  Visibility="Hidden"
-              >
+			  Visibility="Visible">
+
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/GamingBackground.jpeg"
+                Opacity="0.8"/>
+            </Grid.Background>
 
             <!-- Column and Row Definitions -->
             <Grid.ColumnDefinitions>
@@ -33,26 +36,45 @@
             </Grid.RowDefinitions>
 
             <!-- Game Canvas -->
-            <Viewbox Grid.Column="1" Grid.Row="1" Margin="0,10,0,20">
-                <Canvas x:Name="GameCanvas" Background="Black" Width="250" Height="550" ClipToBounds="True"/>
+            <Viewbox Grid.Column="1" Grid.Row="1" Margin="0,0,0,20">
+                <Canvas x:Name="GameCanvas"
+                        Background="Black"
+                        Width="250" Height="550"
+                        ClipToBounds="True" Opacity="0.7"
+                        />
             </Viewbox>
 
             <!-- Score Text -->
-            <TextBlock x:Name="ScoreText" Grid.Row="0" Grid.Column="1" Text="Score: " TextAlignment="Center"/>
+            <TextBlock x:Name="ScoreText"
+                       Grid.Row="0" Grid.Column="1"
+                       Text="Score: "
+                       TextAlignment="Center"
+                       FontFamily="Unispace"
+                       Foreground="Black" Background="White" Opacity="0.6"
+                       
+                       />
 
             <!-- Hold Section -->
             <Grid x:Name="Hold"
                   Grid.Row="1"
                   Grid.Column="0"
                   VerticalAlignment="Center"
-                  HorizontalAlignment="Right">
+                  HorizontalAlignment="Right"
+                  Margin="0,0,10,100">
+                
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Hold" TextAlignment="Center" Grid.Row="0"/>
-                <Border Background="Black" Grid.Row="1" CornerRadius="10" BorderBrush="DarkRed" BorderThickness="4">
+                
+                <TextBlock Text="Hold"
+                           TextAlignment="Center"
+                           Grid.Row="0"
+                           FontFamily="Unispace"
+                           Foreground="Black" Background="White" Opacity="0.6"/>
+                
+                <Border Background="Black"
+                        Grid.Row="1" Opacity="0.6">
                     <Image x:Name="HoldImage" Width="100" Height="100"/>
                 </Border>
             </Grid>
@@ -62,24 +84,31 @@
                   Grid.Row="1"
                   Grid.Column="2"
                   VerticalAlignment="Center"
-                  HorizontalAlignment="Left">
+                  HorizontalAlignment="Left"
+                  Margin="10,0,0,0">
+                
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Next" TextAlignment="Center" Grid.Row="0"/>
-                <Border Background="Black" Margin="0" Grid.Row="1">
+                
+                <TextBlock Text="Next"
+                           TextAlignment="Center"
+                           Grid.Row="0"
+                           FontFamily="Unispace" Background="White" Opacity="0.6" Foreground="Black"
+                           />
+
+                <Border Background="Black" Margin="0" Grid.Row="1" Opacity="0.6">
                     <StackPanel>
-                        <Image x:Name="NextImage1" Margin="0" Width="100"/>
-                        <Image x:Name="NextImage2" Margin="0" Width="100"/>
-                        <Image x:Name="NextImage3" Margin="0" Width="100"/>
+                        <Image x:Name="NextImage1" Margin="0" Width="100" Height="100"/>
+                        <Image x:Name="NextImage2" Margin="0" Width="100" Height="100"/>
+                        <Image x:Name="NextImage3" Margin="0" Width="100" Height="100"/>
                     </StackPanel>
                 </Border>
             </Grid>
-
         </Grid>
-
-        <!-- Game Over Menu -->
+        
+        <!-- GameOver Page -->
         <Grid x:Name="GameOverMenu"
 			  Background="#CC000000"
 			  Grid.RowSpan="2"
@@ -92,6 +121,7 @@
 					Background="Black"
 					Width="400" Height="300"
 					HorizontalAlignment="Center" VerticalAlignment="Center">
+
                 <StackPanel>
                     <TextBlock Text="Game Over"
 							   FontSize="48"
@@ -119,16 +149,161 @@
 							Margin="1,20,1,0"
 							Padding="4"/>
 
-
                 </StackPanel>
             </Border>
         </Grid>
 
+        <!--mode selection page-->
+        <Grid x:Name="ModeSelectionPage"
+              Visibility="Hidden">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/MainMenu_Background.jpg"
+                            Opacity="0.6"/>
+            </Grid.Background>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    CornerRadius="10"
+                    BorderBrush="White">
+
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="#FF66067C" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <TextBlock
+                    Text="Mode Selection"
+                    FontSize="48"
+                    Foreground="White"
+                    FontFamily="Unispace"
+                    Padding="10">
+                </TextBlock>
+            </Border>
+
+            <StackPanel Grid.Row="1">
+                <Button x:Name="SinglePlayer"
+                        Content="Single-Player"
+                        FontSize="36"
+                        Background="Cyan"
+                        Click="SinglePlayer_Click"
+                        Padding="4"
+                        FontFamily="Unispace"
+                        HorizontalAlignment="Center"
+                        Width="300"
+                        Margin="0,0,0,20"/>
+
+                <Button x:Name="LocalBattle"
+                        Content="Local Battle"
+                        FontSize="36"
+                        Background="Cyan"
+                        Click="LocalBattle_Click"
+                        Padding="4"
+                        FontFamily="Unispace"
+                        HorizontalAlignment="Center"
+                        Width="300"
+                        Margin="0,0,0,20"/>
+
+                <Button x:Name="OnlineBattle"
+                        Content="Online Battle"
+                        FontSize="36"
+                        Background="Cyan"
+                        Click="OnlineBattle_Click"
+                        Padding="4"
+                        FontFamily="Unispace"
+                        HorizontalAlignment="Center"
+                        Width="300"/>
+            </StackPanel>
+
+            <Button x:Name="ReturnButton_Mode"
+                    Grid.Row="2"
+		            Content="Return"
+		            FontSize="36"
+		            Background="Cyan"
+		            Click="ReturnButton_Click"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    FontFamily="Unispace"/>
+        </Grid>
+
+        <!--insrtuction page-->
+        <Grid x:Name="InstructionPage"
+			  Visibility="Hidden">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/MainMenu_Background.jpg"
+                            Opacity="0.5"/>
+            </Grid.Background>
+
+            <TextBlock Grid.Row="0"
+                       Text="Instruction"
+					   FontSize="48"
+					   Foreground="Black"
+					   HorizontalAlignment="Center"
+                       FontFamily="Unispace"/>
+
+            <TextBlock Grid.Row="1"
+                       x:Name="InstructionText"
+                       TextWrapping="Wrap"
+                       FontSize="24"
+                       Foreground="Black"
+                       HorizontalAlignment="Left"
+                       FontFamily="Unispace">
+                <Run Text="Controls:"/>
+                <LineBreak/>
+                <Run Text="[1P]Move Left :Left Arrow    "/><Run Text="[2P]Move Left :A"/>
+                <LineBreak/>
+                <Run Text="[1P]Move Right:Right Arrow   "/><Run Text="[2P]Move Right:D"/>
+                <LineBreak/>
+                <Run Text="[1P]Rotate CW :Up Arrow      "/><Run Text="[2P]Rotate CW :W"/>
+                <LineBreak/>
+                <Run Text="[1P]Soft Drop :Down Arrow    "/><Run Text="[2P]Soft Drop :S"/>
+                <LineBreak/>
+                <Run Text="[1P]Hard Drop :Enter         "/><Run Text="[2P]Hard Drop :SpaceBar"/>
+                <LineBreak/>
+                <Run Text="[1P]Hold      :Right Shift   "/><Run Text="[2P]Hold      :Left Shift"/>
+                <LineBreak/><LineBreak/>
+                <Run Text="Tips:"/>
+                <LineBreak/>
+                <Run FontSize="20" Text="1. Plan ahead by looking at the next blocks in the queue."/>
+                <LineBreak/>
+                <Run FontSize="20" Text="2. Use the hold feature to save a block for later use."/>
+                <LineBreak/>
+                <Run FontSize="20" Text="3. Try to clear multiple lines at once for higher scores."/>
+                <LineBreak/><LineBreak/>
+                <Run Text="Good luck and have fun!"/></TextBlock>
+
+
+            <Button x:Name="ReturnButton_Instruct"
+                    Grid.Row="2"
+					Content="Return"
+					FontSize="36"
+					Background="Cyan"
+					Click="ReturnButton_Click"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    FontFamily="Unispace"/>
+        </Grid>
+        
         <!--main menu-->
         <Grid x:Name="GameMainMenu"
 			  Grid.RowSpan="2"
 			  Grid.ColumnSpan="3"
-              Visibility = "Visible">
+              Visibility = "Visible" d:IsHidden="True">
             <Grid.Background>
                 <ImageBrush ImageSource="/Assets/MainMenu_Background.jpg"/>
             </Grid.Background>
@@ -138,7 +313,7 @@
             </Grid.RowDefinitions>
 
             <Border BorderBrush="White"
-                    BorderThickness="3"
+                    BorderThickness="1.5"
                     CornerRadius="10"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center" 
@@ -146,18 +321,11 @@
                 <Border.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black"/>
-                        <GradientStop Color="#FF303030" Offset="1"/>
+                        <GradientStop Color="#FF18009B" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.Background>
                 <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                    <TextBlock FontSize="72" FontFamily="Unispace">
-                        <Run Text="T" Foreground="Red"/>
-                        <Run Text="e" Foreground="Green"/>
-                        <Run Text="t" Foreground="Orange"/>
-                        <Run Text="r" Foreground="Purple"/>
-                        <Run Text="i" Foreground="Cyan"/>
-                        <Run Text="s" Foreground="Yellow"/>
-                    </TextBlock>
+                    <TextBlock FontSize="100" FontFamily="Unispace"><Run Foreground="#FFF73B3B" Text="T"/><Run Foreground="#FF29C329" Text="e"/><Run Foreground="Orange" Text="t"/><Run Foreground="#FFCE3FCE" Text="r"/><Run Foreground="Cyan" Text="i"/><Run Foreground="Yellow" Text="s"/></TextBlock>
                 </StackPanel>
             </Border>
 
@@ -184,47 +352,6 @@
                         HorizontalAlignment="Center"
                         Width="300"/>
             </StackPanel>
-
         </Grid>
-
-        <!--insrtuction page-->
-        <Grid x:Name="InstructionPage"
-			  Background="Pink"
-			  Visibility="Hidden">
-
-            <StackPanel>
-                <TextBlock Text="This is the Instruction Page"
-							   FontSize="48"
-							   Foreground="White"
-							   HorizontalAlignment="Center"/>
-
-                <Button x:Name="StartButton_Instruct"
-							Content="Start"
-							FontSize="36"
-							Background="Cyan"
-							Click="StartButton_Click"
-							Margin="1,20,1,0" Padding="4"/>
-
-                <Button x:Name="ReturnButton_Instruct"
-							Content="Return to Main Menu"
-							FontSize="36"
-							Background="Cyan"
-							Click="ReturnButton_Click"
-							Margin="1,20,1,0" Padding="4"/>
-
-
-            </StackPanel>
-
-
-        </Grid>
-
     </Grid>
-
-
-
-
-
-
-
-
 </Window>
