@@ -159,6 +159,7 @@ namespace Tetris
             FinalScoreText.Text = $"Score: {gameState.Score}";
         }
 
+    
         private async void RestartButton_Click(object sender, RoutedEventArgs e)
         {
             gameState = new GameState();
@@ -166,21 +167,29 @@ namespace Tetris
             await GameLoop();
         }
 
-        private async void ReturnButton_Click(object sender, RoutedEventArgs e)
-        {
-            GameOverMenu.Visibility = Visibility.Hidden;
-            GameMainMenu.Visibility = Visibility.Visible;
-        }
-
         private async void StartButton_Click(object sender, RoutedEventArgs e)
         {
             gameState = new GameState();   
+            InstructionPage.Visibility = Visibility.Hidden;
             GameMainMenu.Visibility = Visibility.Hidden;
             GameGrid.Visibility = Visibility.Visible;
             GameCanvas.Loaded += GameCanvas_Loaded;
             await GameLoop();
         }
 
+        private void InstructButton_Click(object sender, RoutedEventArgs e)
+        {
+            GameMainMenu.Visibility= Visibility.Hidden;
+            GameGrid.Visibility= Visibility.Hidden;
+            InstructionPage.Visibility = Visibility.Visible;
+        }
+
+        private void ReturnButton_Click(object sender, RoutedEventArgs e)
+        {
+            GameGrid.Visibility= Visibility.Hidden;
+            InstructionPage.Visibility = Visibility.Hidden;
+            GameMainMenu.Visibility = Visibility.Visible;
+        }
 
 
         private void Window_KeyDown(object sender, KeyEventArgs e)

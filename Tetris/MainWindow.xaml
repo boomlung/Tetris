@@ -11,13 +11,18 @@
         FontFamily="Segoe UI Light" FontSize="28"
         KeyDown="Window_KeyDown">
 
-	<!--there could only be 1 grid in 1 window-->
+
+
+    <!--there could only be 1 grid in 1 window-->
 	<Grid>
 		<!-- Game Grid -->
-		<Grid x:Name="GameGrid" 
-			  Background="Pink" 
-			  Visibility="Visible">
-			<!-- Column and Row Definitions -->
+		<Grid x:Name="GameGrid"
+			  Background="Pink"
+			  Visibility="Hidden">
+
+            
+            
+            <!-- Column and Row Definitions -->
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="*"/>
 				<ColumnDefinition Width="auto"/>
@@ -77,7 +82,7 @@
 					BorderThickness="2"
 					CornerRadius="10"
 					Background="Black"
-					Width="400" Height="200"
+					Width="400" Height="300"
 					HorizontalAlignment="Center" VerticalAlignment="Center">
 				<StackPanel>
 					<TextBlock Text="Game Over"
@@ -91,12 +96,22 @@
 							   Foreground="White"
 							   HorizontalAlignment="Center"/>
 
-					<Button x:Name="RestartButton"
+					<Button x:Name="RestartButton_GG"
 							Content="Restart"
 							FontSize="36"
 							Background="Cyan"
 							Click="RestartButton_Click"
 							Margin="1,20,1,0" Padding="4"/>
+
+					<Button x:Name="ReturnButton_GG"
+							Content="Return to Main menu"
+							FontSize="36"
+							Background="Cyan"
+							Click="ReturnButton_Click"
+							Margin="1,20,1,0"
+							Padding="4">
+						
+					</Button>
 					
 
 				</StackPanel>
@@ -105,10 +120,17 @@
 		
 		<!--main menu-->
 		<Grid x:Name="GameMainMenu"
-			  Background="White"
+			  
 			  Grid.RowSpan="2"
 			  Grid.ColumnSpan="3"
 			  Visibility="Visible">
+
+            <Grid.Background>
+                <ImageBrush ImageSource="C:\school\year3sem1\IERG3080\group_proj\project\Tetris\Tetris\Assets\MainMenu_Background.jpg"
+                            Stretch="Fill"/>
+            </Grid.Background>
+			
+			
 			
 			  <StackPanel>
 					<TextBlock Text="Game Start!"
@@ -116,16 +138,55 @@
 							   Foreground="White"
 							   HorizontalAlignment="Center"/>
 
-					<Button x:Name="StartButton"
+					<Button x:Name="StartButton_Main"
 							Content="Start"
 							FontSize="36"
 							Background="Cyan"
 							Click="StartButton_Click"
 							Margin="1,20,1,0" Padding="4"/>
+				  
+					<Button x:Name="Instruct_Button_Main"
+							Content="Go to Instruction Page"
+							FontSize="36"
+							Background="Cyan"
+							Click="InstructButton_Click"
+							Margin="1,20,1,0" Padding="4"/>
 
 				</StackPanel>
 
 		</Grid>
+	
+		<!--insrtuction page-->
+		<Grid x:Name="InstructionPage"
+			  Background="Pink"
+			  Visibility="Hidden">
+			
+			  <StackPanel>
+					<TextBlock Text="This is the Instruction Page"
+							   FontSize="48"
+							   Foreground="White"
+							   HorizontalAlignment="Center"/>
+				  
+					<Button x:Name="StartButton_Instruct"
+							Content="Start"
+							FontSize="36"
+							Background="Cyan"
+							Click="StartButton_Click"
+							Margin="1,20,1,0" Padding="4"/>
+				  
+				  <Button x:Name="ReturnButton_Instruct"
+							Content="Return to Main Menu"
+							FontSize="36"
+							Background="Cyan"
+							Click="ReturnButton_Click"
+							Margin="1,20,1,0" Padding="4"/>
+					
+			  
+				</StackPanel>
+		
+			
+		</Grid>
+	
 	</Grid>
 
 
