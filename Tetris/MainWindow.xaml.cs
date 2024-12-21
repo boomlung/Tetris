@@ -48,7 +48,7 @@ namespace Tetris
 
         private readonly Image[,] graphics;
 
-        private GameState gameState = new GameState();
+        private GameState gameState = new GameState(false);
 
         public MainWindow()
         {
@@ -165,14 +165,14 @@ namespace Tetris
     
         private async void RestartButton_Click(object sender, RoutedEventArgs e)
         {
-            gameState = new GameState();
+            gameState = new GameState(true);
             GameOverMenu.Visibility = Visibility.Hidden;
             await GameLoop();
         }
 
         private async void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            gameState = new GameState();   
+            gameState = new GameState(true);
             InstructionPage.Visibility = Visibility.Hidden;
             GameMainMenu.Visibility = Visibility.Hidden;
             GameGrid.Visibility = Visibility.Visible;
@@ -200,27 +200,32 @@ namespace Tetris
             switch (e.Key)
             {
                 case Key.Left:
-                    if (!gameState.IsPaused) gameState.MoveBlockLeft();
+                    if (!gameState.IsPaused && gameState.IsPlaying) gameState.MoveBlockLeft();
                     break;
                 case Key.Right:
-                    if (!gameState.IsPaused) gameState.MoveBlockRight();
+                    if (!gameState.IsPaused && gameState.IsPlaying) gameState.MoveBlockRight();
                     break;
                 case Key.Down:
-                    if (!gameState.IsPaused) gameState.MoveBlockDown();
+                    if (!gameState.IsPaused && gameState.IsPlaying) gameState.MoveBlockDown();
                     break;
                 case Key.Up:
-                    if (!gameState.IsPaused) gameState.RotateBlockCW();
+                    if (!gameState.IsPaused && gameState.IsPlaying) gameState.RotateBlockCW();
                     break;
                 case Key.Enter:
-                    if (!gameState.IsPaused) gameState.DropBlock();
+                    if (!gameState.IsPaused && gameState.IsPlaying) gameState.DropBlock();
                     break;
                 case Key.RightShift:
-                    if (!gameState.IsPaused) gameState.HoldBlock();
+                    if (!gameState.IsPaused && gameState.IsPlaying) gameState.HoldBlock();
                     break;
                 case Key.P:
-                    gameState.IsPaused = !gameState.IsPaused;
-                    if (gameState.IsPaused) 
-                        MessageBox.Show("Game is paused. Press P to resume.", "Pause", MessageBoxButton.OK, MessageBoxImage.Information);
+                    if (gameState.IsPlaying)
+                    {
+                        gameState.IsPaused = !gameState.IsPaused;
+                        if (gameState.IsPaused)
+                        {
+                            MessageBox.Show("Game is paused. Press P to resume.", "Pause", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                    }
                     break;
             }
             Draw();

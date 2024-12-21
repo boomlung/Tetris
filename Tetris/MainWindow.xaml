@@ -126,7 +126,7 @@
 			  Visibility="Visible">
 
             <Grid.Background>
-                <ImageBrush ImageSource="C:\school\year3sem1\IERG3080\group_proj\project\Tetris\Tetris\Assets\MainMenu_Background.jpg"
+                <ImageBrush ImageSource="Assets/MainMenu_Background.jpg"
                             Stretch="Fill"/>
             </Grid.Background>
 			

@@ -26,9 +26,18 @@ namespace Tetris
         public Block Held { get; private set; }
         public bool HeldThisTurn { get; private set; }
         public bool IsPaused { get; set; }
+        public bool IsPlaying { get; private set; }
 
-        public GameState()
+        public GameState(bool flag)
         {
+            if(flag == false)
+            {
+                IsPlaying = false;
+            }
+            else
+            {
+                IsPlaying = true;
+            }
             GameGrid = new Grid(22, 10);
             BlockQueue = new BlockQueue();
             CurrentBlock = BlockQueue.GetNextBlock();
@@ -108,6 +117,7 @@ namespace Tetris
             
             if (IsGameOver())
             {
+                IsPlaying = false;
                 GameOver = true;
             }
             else
