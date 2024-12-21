@@ -17,6 +17,7 @@
     <None Remove="Assets\Block-S.png" />
     <None Remove="Assets\Block-T.png" />
     <None Remove="Assets\Block-Z.png" />
+    <None Remove="Assets\GamingBackground.jpeg" />
     <None Remove="Assets\Icon.ico" />
     <None Remove="Assets\MainMenu_Background.jpg" />
     <None Remove="Assets\TileBlue.png" />
@@ -38,6 +39,7 @@
     <Resource Include="Assets\Block-S.png" />
     <Resource Include="Assets\Block-T.png" />
     <Resource Include="Assets\Block-Z.png" />
+    <Resource Include="Assets\GamingBackground.jpeg" />
     <Resource Include="Assets\Icon.ico" />
     <Resource Include="Assets\MainMenu_Background.jpg" />
     <Resource Include="Assets\TileBlue.png" />
