@@ -192,6 +192,7 @@ namespace Tetris
             GameGrid.Visibility= Visibility.Hidden;
             InstructionPage.Visibility = Visibility.Hidden;
             GameMainMenu.Visibility = Visibility.Visible;
+            GameOverMenu.Visibility = Visibility.Hidden;
         }
 
 
