@@ -88,6 +88,7 @@ namespace Tetris
         public int CheckRowComplete()
         {
             int clearedrows = 0;
+            int score = 0;
             for (int row = Rows - 1; row >= 0; row--)
             {
                 if (IsRowFull(row))
@@ -99,7 +100,11 @@ namespace Tetris
                 }
             }
 
-            int score = (int)Math.Pow(2, clearedrows) * 100;
+            if (clearedrows >= 1)
+            {
+                score = (int)Math.Pow(2, clearedrows) * 100;
+            }
+            
             return score;
         }
 
