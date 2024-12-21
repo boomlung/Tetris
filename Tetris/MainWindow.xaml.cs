@@ -183,11 +183,7 @@ namespace Tetris
         
         private void LocalBattle_Click(object sender, RoutedEventArgs e)
         {
-            gameState = new GameState(true);
-            GameGrid.Visibility = Visibility.Visible;
-            ModeSelectionPage.Visibility = Visibility.Hidden;
-            GameCanvas.Loaded += GameCanvas_Loaded;
-            await GameLoop();
+           //
         }
 
         private void OnlineBattle_Click(object sender, RoutedEventArgs e)

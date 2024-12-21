@@ -10,8 +10,8 @@
         Foreground="White"
         FontFamily="Segoe UI Light" FontSize="28"
         KeyDown="Window_KeyDown">
-    
-    
+
+
 
 
 
@@ -47,7 +47,7 @@
                         Opacity="0.7"
                         ClipToBounds="True"/>
             </Viewbox>
-            
+
             <!-- Score Text -->
             <TextBlock x:Name="ScoreText"
                        Grid.Row="0"
@@ -139,7 +139,7 @@
             <!-- Game Canvas_1P -->
             <Viewbox Grid.Column="1"
              Grid.Row="1"
-             Margin="-300,0,0,20">
+             Margin="-290,0,0,20">
                 <Canvas x:Name="GameCanvas_1P"
                 Background="Black"
                 Width="250" Height="550"
@@ -148,40 +148,53 @@
             </Viewbox>
 
             <!-- Game Canvas_2P -->
-            <Viewbox Grid.Column="1"
+            <Viewbox Grid.Column="2"
             Grid.Row="1"
-            Margin="300,0,0,20">
+            Margin="-110,0,0,20">
                 <Canvas x:Name="GameCanvas_2P"
                 Background="Black"
                 Width="250" Height="550"
                 Opacity="0.7"
                 ClipToBounds="True"/>
             </Viewbox>
-            
-            <!-- Score Text -->
+
+
+            <!-- Score Text 1P -->
             <TextBlock x:Name="ScoreText_1P"
                Grid.Row="0"
-               Grid.Column="1"
                Text="Score: "
-               TextAlignment="Left"
+               Margin="138,16,28,0"
+               TextAlignment="Center"
                FontFamily="Unispace"
                Foreground="Black"
                Background="White"
                Opacity="0.6"/>
 
-            <!-- Hold Section -->
+            <!-- Score Text 2P -->
+            <TextBlock x:Name="ScoreText_2P"
+            Grid.Row="0"
+            Grid.Column="2"
+            Text="Score: "
+            TextAlignment="Center"
+            FontFamily="Unispace"
+            Foreground="Black"
+            Background="White"
+            Opacity="0.6" Margin="28,16,138,534" Grid.RowSpan="2"/>
+
+
+            <!-- Hold Section 1P -->
             <Grid x:Name="Hold_1P"
                 Grid.Row="1"
                 Grid.Column="0"
                 VerticalAlignment="Top"
-                HorizontalAlignment="Right"
-                Margin="0,0,20,100">
-                
+                HorizontalAlignment="Left"
+                Margin="15,0,0,100">
+
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                
+
                 <TextBlock Text="Hold"
                    TextAlignment="Center"
                    Grid.Row="0"
@@ -194,13 +207,38 @@
                 </Border>
             </Grid>
 
-            <!-- Block Queue -->
+            <!-- Hold Section 2P -->
+            <Grid x:Name="Hold_2P"
+            Grid.Row="1"
+            Grid.Column="3"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Right"
+            Margin="0,0,15,100">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Hold"
+                TextAlignment="Center"
+                Grid.Row="0"
+                FontFamily="Unispace"
+                Foreground="Black" Background="White" Opacity="0.6"/>
+
+                <Border Background="Black"
+                Grid.Row="1" Opacity="0.6">
+                    <Image x:Name="HoldImage_2P" Width="100" Height="100"/>
+                </Border>
+            </Grid>
+
+            <!-- Block Queue 1P -->
             <Grid x:Name="Queue_1P"
                 Grid.Row="1"
-                Grid.Column="2"
-                VerticalAlignment="Top"
+                Grid.Column="0"
+                VerticalAlignment="Bottom"
                 HorizontalAlignment="Left"
-                Margin="-430,150,0,0">
+                Margin="15,0,0,50">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
@@ -221,6 +259,35 @@
                     </StackPanel>
                 </Border>
             </Grid>
+
+            <!-- Block Queue 2P -->
+            <Grid x:Name="Queue_2P"
+            Grid.Row="1"
+            Grid.Column="3"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Right"
+            Margin="0,0,15,50">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Next"
+                TextAlignment="Center"
+                Grid.Row="0"
+                FontFamily="Unispace" Background="White" Opacity="0.6" Foreground="Black"
+                />
+
+                <Border Background="Black" Margin="0" Grid.Row="1" Opacity="0.6">
+                    <StackPanel>
+                        <Image x:Name="NextImage1_2P" Margin="0" Width="100" Height="100"/>
+                        <Image x:Name="NextImage2_2P" Margin="0" Width="100" Height="100"/>
+                        <Image x:Name="NextImage3_2P" Margin="0" Width="100" Height="100"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
         </Grid>
 
         <!-- GameOver Page -->
