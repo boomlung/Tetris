@@ -240,7 +240,11 @@ namespace Tetris
                         gameState.IsPaused = !gameState.IsPaused;
                         if (gameState.IsPaused)
                         {
-                            MessageBox.Show("Game is paused. Press P to resume.", "Pause", MessageBoxButton.OK, MessageBoxImage.Information);
+                            PauseMenu.Visibility = Visibility.Visible;
+                        }
+                        else if(!gameState.IsPaused)
+                        {
+                            PauseMenu.Visibility = Visibility.Hidden;
                         }
                     }
                     break;

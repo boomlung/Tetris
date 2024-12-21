@@ -153,6 +153,30 @@
             </Border>
         </Grid>
 
+        <!-- Pause Page -->
+        <Grid x:Name="PauseMenu"
+	    Background="#CC000000"
+	    Grid.RowSpan="2"
+	    Grid.ColumnSpan="3"
+	    Visibility="Hidden">
+
+            <Border BorderBrush="White"
+			BorderThickness="2"
+			CornerRadius="10"
+			Background="Black"
+			Width="400" Height="300"
+			HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                <StackPanel>
+                    <TextBlock Text="Paused"
+					   FontSize="48"
+					   Foreground="White"
+					   HorizontalAlignment="Center"/>
+
+                </StackPanel>
+            </Border>
+        </Grid>
+
         <!--mode selection page-->
         <Grid x:Name="ModeSelectionPage"
               Visibility="Hidden">
