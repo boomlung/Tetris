@@ -90,7 +90,7 @@
                   Grid.Column="2"
                   VerticalAlignment="Top"
                   HorizontalAlignment="Left"
-                  Margin="10,0,0,0">
+                  Margin="10,0,0,1000">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
@@ -111,6 +111,113 @@
                         <Image x:Name="NextImage1" Margin="0" Width="100" Height="100"/>
                         <Image x:Name="NextImage2" Margin="0" Width="100" Height="100"/>
                         <Image x:Name="NextImage3" Margin="0" Width="100" Height="100"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+
+        <!-- Game Grid Local 2P -->
+        <Grid x:Name="GameGrid_Local"
+	    Visibility="Visible">
+
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/GamingBackground.jpeg"
+                Opacity="0.8"/>
+            </Grid.Background>
+
+            <!-- Column and Row Definitions -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Game Canvas_1P -->
+            <Viewbox Grid.Column="1"
+             Grid.Row="1"
+             Margin="-300,0,0,20">
+                <Canvas x:Name="GameCanvas_1P"
+                Background="Black"
+                Width="250" Height="550"
+                Opacity="0.7"
+                ClipToBounds="True"/>
+            </Viewbox>
+
+            <!-- Game Canvas_2P -->
+            <Viewbox Grid.Column="1"
+            Grid.Row="1"
+            Margin="300,0,0,20">
+                <Canvas x:Name="GameCanvas_2P"
+                Background="Black"
+                Width="250" Height="550"
+                Opacity="0.7"
+                ClipToBounds="True"/>
+            </Viewbox>
+            
+            <!-- Score Text -->
+            <TextBlock x:Name="ScoreText_1P"
+               Grid.Row="0"
+               Grid.Column="1"
+               Text="Score: "
+               TextAlignment="Left"
+               FontFamily="Unispace"
+               Foreground="Black"
+               Background="White"
+               Opacity="0.6"/>
+
+            <!-- Hold Section -->
+            <Grid x:Name="Hold_1P"
+                Grid.Row="1"
+                Grid.Column="0"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Right"
+                Margin="0,0,20,100">
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <TextBlock Text="Hold"
+                   TextAlignment="Center"
+                   Grid.Row="0"
+                   FontFamily="Unispace"
+                   Foreground="Black" Background="White" Opacity="0.6"/>
+
+                <Border Background="Black"
+                Grid.Row="1" Opacity="0.6">
+                    <Image x:Name="HoldImage_1P" Width="100" Height="100"/>
+                </Border>
+            </Grid>
+
+            <!-- Block Queue -->
+            <Grid x:Name="Queue_1P"
+                Grid.Row="1"
+                Grid.Column="2"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                Margin="-430,150,0,0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Next"
+                   TextAlignment="Center"
+                   Grid.Row="0"
+                   FontFamily="Unispace" Background="White" Opacity="0.6" Foreground="Black"
+                   />
+
+                <Border Background="Black" Margin="0" Grid.Row="1" Opacity="0.6">
+                    <StackPanel>
+                        <Image x:Name="NextImage1_1P" Margin="0" Width="100" Height="100"/>
+                        <Image x:Name="NextImage2_1P" Margin="0" Width="100" Height="100"/>
+                        <Image x:Name="NextImage3_1P" Margin="0" Width="100" Height="100"/>
                     </StackPanel>
                 </Border>
             </Grid>
@@ -176,7 +283,7 @@
 			BorderThickness="2"
 			CornerRadius="10"
 			Background="Black"
-			Width="400" Height="300"
+			Width="500" Height="150"
 			HorizontalAlignment="Center" VerticalAlignment="Center">
 
                 <StackPanel>
@@ -185,6 +292,14 @@
 					           Foreground="White"
 					           HorizontalAlignment="Center"
                                FontFamily="{StaticResource Unispace}" FontWeight="Bold"/>
+                    <TextBlock Text="Paused!"
+					   FontSize="48"
+					   Foreground="White"
+					   HorizontalAlignment="Center"/>
+                    <TextBlock Text="Press esc to resume"
+                        FontSize="48"
+                        Foreground="White"
+                        HorizontalAlignment="Center"/>
 
                 </StackPanel>
             </Border>
@@ -342,7 +457,7 @@
         <Grid x:Name="GameMainMenu"
 			  Grid.RowSpan="2"
 			  Grid.ColumnSpan="3"
-              Visibility = "Visible">
+              Visibility = "Hidden">
             <Grid.Background>
                 <ImageBrush ImageSource="/Assets/MainMenu_Background.jpg"/>
             </Grid.Background>

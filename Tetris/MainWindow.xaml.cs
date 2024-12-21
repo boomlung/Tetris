@@ -15,11 +15,7 @@ namespace Tetris
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
-    /// this is a comment
-    /// this is the comment 2
-    /// this is comment 3
     /// </summary>
-    /// test branch
     public partial class MainWindow : Window
     {
         private readonly ImageSource[] tileImages = new ImageSource[]
@@ -187,7 +183,11 @@ namespace Tetris
         
         private void LocalBattle_Click(object sender, RoutedEventArgs e)
         {
-            //
+            gameState = new GameState(true);
+            GameGrid.Visibility = Visibility.Visible;
+            ModeSelectionPage.Visibility = Visibility.Hidden;
+            GameCanvas.Loaded += GameCanvas_Loaded;
+            await GameLoop();
         }
 
         private void OnlineBattle_Click(object sender, RoutedEventArgs e)
@@ -242,7 +242,7 @@ namespace Tetris
                         {
                             PauseMenu.Visibility = Visibility.Visible;
                         }
-                        else if(!gameState.IsPaused)
+                        else 
                         {
                             PauseMenu.Visibility = Visibility.Hidden;
                         }
