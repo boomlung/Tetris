@@ -10,6 +10,8 @@
         Foreground="White"
         FontFamily="Segoe UI Light" FontSize="28"
         KeyDown="Window_KeyDown">
+    
+    
 
 
 
@@ -52,7 +54,7 @@
                        Grid.Column="1"
                        Text="Score: "
                        TextAlignment="Center"
-                       FontFamily="Unispace"
+                       FontFamily="{StaticResource Unispace}" FontWeight="Bold"
                        Foreground="Black"
                        Background="White"
                        Opacity="0.6"/>
@@ -73,7 +75,7 @@
                 <TextBlock Text="Hold"
                            TextAlignment="Center"
                            Grid.Row="0"
-                           FontFamily="Unispace"
+                           FontFamily="{StaticResource Unispace}" FontWeight="Bold"
                            Foreground="Black" Background="White" Opacity="0.6"/>
 
                 <Border Background="Black"
@@ -98,7 +100,10 @@
                 <TextBlock Text="Next"
                            TextAlignment="Center"
                            Grid.Row="0"
-                           FontFamily="Unispace" Background="White" Opacity="0.6" Foreground="Black"
+                           FontFamily="{StaticResource Unispace}" FontWeight="Bold" 
+                           Background="White"
+                           Opacity="0.6"
+                           Foreground="Black"
                            />
 
                 <Border Background="Black" Margin="0" Grid.Row="1" Opacity="0.6">
@@ -129,28 +134,32 @@
                     <TextBlock Text="Game Over"
 							   FontSize="48"
 							   Foreground="White"
-							   HorizontalAlignment="Center"/>
+							   HorizontalAlignment="Center"
+                               FontFamily="{StaticResource Unispace}" FontWeight="Bold"/>
 
                     <TextBlock x:Name="FinalScoreText"
 							   Text="Score: "
 							   FontSize="36"
 							   Foreground="White"
-							   HorizontalAlignment="Center"/>
+							   HorizontalAlignment="Center"
+                               FontFamily="{StaticResource Unispace}" FontWeight="Bold"/>
 
                     <Button x:Name="RestartButton_GG"
 							Content="Restart"
-							FontSize="36"
+							FontSize="25"
 							Background="Cyan"
 							Click="RestartButton_Click"
-							Margin="1,20,1,0" Padding="4"/>
+							Margin="1,20,1,0" Padding="4"
+                            FontFamily="{StaticResource Unispace}" FontWeight="Bold"/>
 
                     <Button x:Name="ReturnButton_GG"
 							Content="Return to Main menu"
-							FontSize="36"
+							FontSize="25"
 							Background="Cyan"
 							Click="ReturnButton_Click"
 							Margin="1,20,1,0"
-							Padding="4"/>
+							Padding="4"
+                            FontFamily="{StaticResource Unispace}" FontWeight="Bold"/>
 
                 </StackPanel>
             </Border>
@@ -172,15 +181,16 @@
 
                 <StackPanel>
                     <TextBlock Text="Paused"
-					   FontSize="48"
-					   Foreground="White"
-					   HorizontalAlignment="Center"/>
+					           FontSize="48"
+					           Foreground="White"
+					           HorizontalAlignment="Center"
+                               FontFamily="{StaticResource Unispace}" FontWeight="Bold"/>
 
                 </StackPanel>
             </Border>
         </Grid>
 
-        <!--mode selection page-->
+        <!-- Mode Selection page -->
         <Grid x:Name="ModeSelectionPage"
               Visibility="Hidden">
             <Grid.Background>
@@ -211,7 +221,7 @@
                     Text="Mode Selection"
                     FontSize="48"
                     Foreground="White"
-                    FontFamily="Unispace"
+                    FontFamily="{StaticResource Unispace}" FontWeight="Bold"
                     Padding="10">
                 </TextBlock>
             </Border>
@@ -219,33 +229,33 @@
             <StackPanel Grid.Row="1">
                 <Button x:Name="SinglePlayer"
                         Content="Single-Player"
-                        FontSize="36"
+                        FontSize="25"
                         Background="Cyan"
                         Click="SinglePlayer_Click"
                         Padding="4"
-                        FontFamily="Unispace"
+                        FontFamily="{StaticResource Unispace}" FontWeight="Bold"
                         HorizontalAlignment="Center"
                         Width="300"
                         Margin="0,0,0,20"/>
 
                 <Button x:Name="LocalBattle"
                         Content="Local Battle"
-                        FontSize="36"
+                        FontSize="25"
                         Background="Cyan"
                         Click="LocalBattle_Click"
                         Padding="4"
-                        FontFamily="Unispace"
+                        FontFamily="{StaticResource Unispace}" FontWeight="Bold"
                         HorizontalAlignment="Center"
                         Width="300"
                         Margin="0,0,0,20"/>
 
                 <Button x:Name="OnlineBattle"
                         Content="Online Battle"
-                        FontSize="36"
+                        FontSize="25"
                         Background="Cyan"
                         Click="OnlineBattle_Click"
                         Padding="4"
-                        FontFamily="Unispace"
+                        FontFamily="{StaticResource Unispace}" FontWeight="Bold"
                         HorizontalAlignment="Center"
                         Width="300"/>
             </StackPanel>
@@ -253,12 +263,13 @@
             <Button x:Name="ReturnButton_Mode"
                     Grid.Row="2"
 		            Content="Return"
-		            FontSize="36"
+		            FontSize="30"
 		            Background="Cyan"
 		            Click="ReturnButton_Click"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Bottom"
-                    FontFamily="Unispace"/>
+                    FontFamily="{StaticResource Unispace}" FontWeight="Bold"
+                    Padding="10"/>
         </Grid>
 
         <!--insrtuction page-->
@@ -281,15 +292,15 @@
 					   FontSize="48"
 					   Foreground="Black"
 					   HorizontalAlignment="Center"
-                       FontFamily="Unispace"/>
+                       FontFamily="{StaticResource Unispace}" FontWeight="Bold"/>
 
             <TextBlock Grid.Row="1"
                        x:Name="InstructionText"
                        TextWrapping="Wrap"
-                       FontSize="24"
+                       FontSize="19"
                        Foreground="Black"
-                       HorizontalAlignment="Left"
-                       FontFamily="Unispace">
+                       HorizontalAlignment="Center"
+                       FontFamily="{StaticResource Unispace}" FontWeight="Bold">
                 <Run Text="Controls:"/>
                 <LineBreak/>
                 <Run Text="[1P]Move Left :Left Arrow    "/><Run Text="[2P]Move Left :A"/>
@@ -306,11 +317,11 @@
                 <LineBreak/><LineBreak/>
                 <Run Text="Tips:"/>
                 <LineBreak/>
-                <Run FontSize="20" Text="1. Plan ahead by looking at the next blocks in the queue."/>
+                <Run FontSize="15" Text="1. Plan ahead by looking at the next blocks in the queue."/>
                 <LineBreak/>
-                <Run FontSize="20" Text="2. Use the hold feature to save a block for later use."/>
+                <Run FontSize="15" Text="2. Use the hold feature to save a block for later use."/>
                 <LineBreak/>
-                <Run FontSize="20" Text="3. Try to clear multiple lines at once for higher scores."/>
+                <Run FontSize="15" Text="3. Try to clear multiple lines at once for higher scores."/>
                 <LineBreak/><LineBreak/>
                 <Run Text="Good luck and have fun!"/></TextBlock>
 
@@ -318,12 +329,13 @@
             <Button x:Name="ReturnButton_Instruct"
                     Grid.Row="2"
 					Content="Return"
-					FontSize="36"
+					FontSize="30"
 					Background="Cyan"
 					Click="ReturnButton_Click"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Bottom"
-                    FontFamily="Unispace"/>
+                    FontFamily="{StaticResource Unispace}" FontWeight="Bold"
+                    Padding="10"/>
         </Grid>
 
         <!--main menu-->
@@ -352,7 +364,7 @@
                     </LinearGradientBrush>
                 </Border.Background>
                 <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                    <TextBlock FontSize="100" FontFamily="Unispace"><Run Foreground="#FFF73B3B" Text="T"/><Run Foreground="#FF29C329" Text="e"/><Run Foreground="Orange" Text="t"/><Run Foreground="#FFCE3FCE" Text="r"/><Run Foreground="Cyan" Text="i"/><Run Foreground="Yellow" Text="s"/></TextBlock>
+                    <TextBlock FontSize="100" FontFamily="{StaticResource Unispace}" FontWeight="Bold"><Run Foreground="#FFF73B3B" Text="T"/><Run Foreground="#FF29C329" Text="e"/><Run Foreground="Orange" Text="t"/><Run Foreground="#FFCE3FCE" Text="r"/><Run Foreground="Cyan" Text="i"/><Run Foreground="Yellow" Text="s"/></TextBlock>
                 </StackPanel>
             </Border>
 
@@ -364,9 +376,9 @@
 						Background="Cyan"
 						Click="StartButton_Click"
                         Padding="4"
-                        FontFamily="Unispace"
+                        FontFamily="{StaticResource Unispace}" FontWeight="Bold"
                         HorizontalAlignment="Center"
-                        Width="300"
+                        Width="400"
                         Margin="0,0,0,20"/>
 
                 <Button x:Name="Instruct_Button_Main"
@@ -375,9 +387,9 @@
 						Background="Cyan"
 						Click="InstructButton_Click"
                         Padding="4"
-                        FontFamily="Unispace"
+                        FontFamily="{DynamicResource Unispace}" FontWeight="Bold"
                         HorizontalAlignment="Center"
-                        Width="300"/>
+                        Width="400"/>
             </StackPanel>
         </Grid>
     </Grid>

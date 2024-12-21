@@ -28,6 +28,10 @@
     <None Remove="Assets\TilePurple.png" />
     <None Remove="Assets\TileRed.png" />
     <None Remove="Assets\TileYellow.png" />
+    <None Remove="Fonts\unispace bold italic.ttf" />
+    <None Remove="Fonts\unispace bold.ttf" />
+    <None Remove="Fonts\unispace italic.ttf" />
+    <None Remove="Fonts\unispace.ttf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -50,6 +54,10 @@
     <Resource Include="Assets\TilePurple.png" />
     <Resource Include="Assets\TileRed.png" />
     <Resource Include="Assets\TileYellow.png" />
+    <Resource Include="Fonts\unispace bold italic.ttf" />
+    <Resource Include="Fonts\unispace bold.ttf" />
+    <Resource Include="Fonts\unispace italic.ttf" />
+    <Resource Include="Fonts\unispace.ttf" />
   </ItemGroup>
 
 </Project>

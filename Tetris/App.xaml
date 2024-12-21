@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:Tetris"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <FontFamily x:Key="Unispace">pack://application:,,,/Fonts/#Unispace</FontFamily>
     </Application.Resources>
 </Application>
