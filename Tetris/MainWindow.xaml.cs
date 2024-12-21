@@ -164,14 +164,14 @@ namespace Tetris
             ScoreText.Text = $"Score: {gameState.Score}";
         }
 
-        private void Opponent_Draw()
+        private void Draw_2P()
         {
-            DrawOpponent_Grid(gameState.GameGrid);
-            DrawBlock(gameState.CurrentBlock);
-            DrawGhostBlock(gameState.CurrentBlock);
-            DrawNextBlock(gameState.BlockQueue);
-            DrawHoldBlock(gameState.Held);
-            ScoreText.Text = $"Score: {gameState.Score}";
+            DrawOpponent_Grid(gameState_2P.GameGrid);
+            DrawBlock(gameState_2P.CurrentBlock);
+            DrawGhostBlock(gameState_2P.CurrentBlock);
+            DrawNextBlock(gameState_2P.BlockQueue);
+            DrawHoldBlock(gameState_2P.Held);
+            ScoreText.Text = $"Score: {gameState_2P.Score}";
         }
 
         private async Task GameLoop()
@@ -269,7 +269,7 @@ namespace Tetris
                 case Key.RightShift:
                     if (!gameState.IsPaused && gameState.IsPlaying) gameState.HoldBlock();
                     break;
-                case Key.P:
+                case Key.Escape:
                     if (gameState.IsPlaying)
                     {
                         gameState.IsPaused = !gameState.IsPaused;
@@ -286,6 +286,45 @@ namespace Tetris
             }
             Draw();
 
+            if(mode_selection == 1)
+            {
+                switch (e.Key)
+                {
+                    case Key.A:
+                        if (!gameState_2P.IsPaused && gameState_2P.IsPlaying) gameState.MoveBlockLeft();
+                        break;
+                    case Key.D:
+                        if (!gameState_2P.IsPaused && gameState_2P.IsPlaying) gameState.MoveBlockRight();
+                        break;
+                    case Key.S:
+                        if (!gameState_2P.IsPaused && gameState_2P.IsPlaying) gameState.MoveBlockDown();
+                        break;
+                    case Key.W:
+                        if (!gameState_2P.IsPaused && gameState_2P.IsPlaying) gameState.RotateBlockCW();
+                        break;
+                    case Key.Space:
+                        if (!gameState_2P.IsPaused && gameState_2P.IsPlaying) gameState.DropBlock();
+                        break;
+                    case Key.LeftShift:
+                        if (!gameState_2P.IsPaused && gameState_2P.IsPlaying) gameState.HoldBlock();
+                        break;
+                    case Key.Escape:
+                        if (gameState_2P.IsPlaying)
+                        {
+                            gameState_2P.IsPaused = !gameState_2P.IsPaused;
+                            if (gameState_2P.IsPaused)
+                            {
+                                PauseMenu.Visibility = Visibility.Visible;
+                            }
+                            else if (!gameState_2P.IsPaused)
+                            {
+                                PauseMenu.Visibility = Visibility.Hidden;
+                            }
+                        }
+                        break;
+                }
+                Draw_2P();
+            }
         }
     }
 }
