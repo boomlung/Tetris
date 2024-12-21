@@ -17,7 +17,7 @@
     <Grid>
         <!-- Game Grid -->
         <Grid x:Name="GameGrid"
-			  Visibility="Visible">
+			  Visibility="Hidden">
 
             <Grid.Background>
                 <ImageBrush ImageSource="/Assets/GamingBackground.jpeg"
@@ -36,43 +36,46 @@
             </Grid.RowDefinitions>
 
             <!-- Game Canvas -->
-            <Viewbox Grid.Column="1" Grid.Row="1" Margin="0,0,0,20">
+            <Viewbox Grid.Column="1"
+                     Grid.Row="1"
+                     Margin="0,0,0,20">
                 <Canvas x:Name="GameCanvas"
                         Background="Black"
                         Width="250" Height="550"
-                        ClipToBounds="True" Opacity="0.7"
-                        />
+                        Opacity="0.7"
+                        ClipToBounds="True"/>
             </Viewbox>
-
+            
             <!-- Score Text -->
             <TextBlock x:Name="ScoreText"
-                       Grid.Row="0" Grid.Column="1"
+                       Grid.Row="0"
+                       Grid.Column="1"
                        Text="Score: "
                        TextAlignment="Center"
                        FontFamily="Unispace"
-                       Foreground="Black" Background="White" Opacity="0.6"
-                       
-                       />
+                       Foreground="Black"
+                       Background="White"
+                       Opacity="0.6"/>
 
             <!-- Hold Section -->
             <Grid x:Name="Hold"
                   Grid.Row="1"
                   Grid.Column="0"
-                  VerticalAlignment="Center"
+                  VerticalAlignment="Top"
                   HorizontalAlignment="Right"
                   Margin="0,0,10,100">
-                
+
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                
+
                 <TextBlock Text="Hold"
                            TextAlignment="Center"
                            Grid.Row="0"
                            FontFamily="Unispace"
                            Foreground="Black" Background="White" Opacity="0.6"/>
-                
+
                 <Border Background="Black"
                         Grid.Row="1" Opacity="0.6">
                     <Image x:Name="HoldImage" Width="100" Height="100"/>
@@ -83,15 +86,15 @@
             <Grid x:Name="Queue"
                   Grid.Row="1"
                   Grid.Column="2"
-                  VerticalAlignment="Center"
+                  VerticalAlignment="Top"
                   HorizontalAlignment="Left"
                   Margin="10,0,0,0">
-                
+
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                
+
                 <TextBlock Text="Next"
                            TextAlignment="Center"
                            Grid.Row="0"
@@ -107,7 +110,7 @@
                 </Border>
             </Grid>
         </Grid>
-        
+
         <!-- GameOver Page -->
         <Grid x:Name="GameOverMenu"
 			  Background="#CC000000"
@@ -298,12 +301,12 @@
                     VerticalAlignment="Bottom"
                     FontFamily="Unispace"/>
         </Grid>
-        
+
         <!--main menu-->
         <Grid x:Name="GameMainMenu"
 			  Grid.RowSpan="2"
 			  Grid.ColumnSpan="3"
-              Visibility = "Visible" d:IsHidden="True">
+              Visibility = "Visible">
             <Grid.Background>
                 <ImageBrush ImageSource="/Assets/MainMenu_Background.jpg"/>
             </Grid.Background>
