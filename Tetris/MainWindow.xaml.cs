@@ -150,8 +150,11 @@ namespace Tetris
             Draw();
             while (!gameState.GameOver)
             {
-                gameState.MoveBlockDown();
-                Draw();
+                if (!gameState.IsPaused)
+                {
+                    gameState.MoveBlockDown();
+                    Draw();
+                }
                 await Task.Delay(500);
             }
 
@@ -197,22 +200,27 @@ namespace Tetris
             switch (e.Key)
             {
                 case Key.Left:
-                    gameState.MoveBlockLeft();
+                    if (!gameState.IsPaused) gameState.MoveBlockLeft();
                     break;
                 case Key.Right:
-                    gameState.MoveBlockRight();
+                    if (!gameState.IsPaused) gameState.MoveBlockRight();
                     break;
                 case Key.Down:
-                    gameState.MoveBlockDown();
+                    if (!gameState.IsPaused) gameState.MoveBlockDown();
                     break;
                 case Key.Up:
-                    gameState.RotateBlockCW();
+                    if (!gameState.IsPaused) gameState.RotateBlockCW();
                     break;
                 case Key.Enter:
-                    gameState.DropBlock();
+                    if (!gameState.IsPaused) gameState.DropBlock();
                     break;
                 case Key.RightShift:
-                    gameState.HoldBlock();
+                    if (!gameState.IsPaused) gameState.HoldBlock();
+                    break;
+                case Key.P:
+                    gameState.IsPaused = !gameState.IsPaused;
+                    if (gameState.IsPaused) 
+                        MessageBox.Show("Game is paused. Press P to resume.", "Pause", MessageBoxButton.OK, MessageBoxImage.Information);
                     break;
             }
             Draw();
